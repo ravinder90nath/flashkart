@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: flashkart-postgres
+    environment:
+      POSTGRES_USER: flashkart
+      POSTGRES_PASSWORD: flashkart
+      POSTGRES_DB: flashkart
+    ports: ["5432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+  redis:
+    image: redis:7
+    container_name: flashkart-redis
+    ports: ["6379:6379"]
+volumes:
+  postgres_data:
